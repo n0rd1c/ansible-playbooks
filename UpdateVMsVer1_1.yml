@@ -1,4 +1,6 @@
 --- #This playbook updates and upgrades all the packages on the VMs
+- name: Update VMs
+  hosts:  all
 
 tasks:
 - name: Update all packages to the latest version
