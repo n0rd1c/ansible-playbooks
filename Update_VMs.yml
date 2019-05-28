@@ -2,7 +2,6 @@
 - name: Update VMs
   hosts:  all
 
-tasks:
 - name: Update all packages to the latest version
   apt:
     upgrade: dist
