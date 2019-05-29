@@ -4,20 +4,19 @@
   hosts:  all
   become: true
   tasks:
-
-- name: Update all packages to the latest version
-  apt:
+  - name: Update all packages to the latest version
+    apt:
     update_cache: yes
 
-- name: Upgrade all packages to the latest version
-  apt:
+  - name: Upgrade all packages to the latest version
+    apt:
     name: "*"
     state: latest  
 
-- name: Remove dependencies that are no longer required
-  apt:
+  - name: Remove dependencies that are no longer required
+    apt:
     autoremove: yes
 
-- name: Remove useless packages from the cache
-  apt:
+  - name: Remove useless packages from the cache
+    apt:
     autoclean: yes    
