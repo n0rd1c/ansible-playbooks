@@ -1,0 +1,11 @@
+--- #This module will update the Pi-Hole 
+
+- name: Update Pi-Hole DNS servers
+  hosts:  192.168.2.82, 192.168.2.83
+  become:  true
+
+  tasks:
+  - name:  Update Pi-Hole to the latest build
+    command: pihole -up
+
+    
