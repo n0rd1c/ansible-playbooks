@@ -1,0 +1,28 @@
+--- #This playbook downloads and installs the latest version of Plex with alerts from Pushbullet
+- name: Update Plex
+  hosts:  your Plex Server IP here
+  become: true
+
+# Sends a push notification to phone letting me know Plex update is about to start
+  tasks:  
+    - pushbullet: 
+        api_key: Your API key here
+        device: "Google Pixel 2 XL"
+        title: "Starting to Update Plex"
+        body:  "The Update to Plex is about to begin"
+# Sends a push notification to phone letting me know Plex is updating
+    - pushbullet: 
+        api_key: Your API key here
+        device: "Google Pixel 2 XL"
+        title: "Starting to Update Plex"
+        body:  "Plex is in the process of updating"
+# Installs the Plex deb package        
+    - name: Install a .deb package from the internet.
+      apt:
+       deb: https://downloads.plex.tv/plex-media-server-new/1.15.8.1198-eadbcbb45/debian/plexmediaserver_1.15.8.1198-eadbcbb45_amd64.deb
+# Sends a push notification to phone letting me know Plex has updated 
+    - pushbullet: 
+        api_key: Your API key here
+        device: "Google Pixel 2 XL"
+        title: "Plex Updated"
+        body:  "Plex has finished updating"
