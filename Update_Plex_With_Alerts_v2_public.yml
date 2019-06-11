@@ -1,5 +1,5 @@
 --- #This playbook downloads and installs the latest version of Plex with alerts from Pushbullet
-- name: Update Plex
+- name: Update Plex with alerts
   hosts:  your Plex Server IP here
   become: true
 
