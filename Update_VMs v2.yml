@@ -1,0 +1,27 @@
+--- #This playbook updates and upgrades all the packages on the VMs
+- name: Update VMs
+  hosts:  all
+  become: true
+
+  tasks:
+  - name: Update all packages to the latest version
+    apt:
+       update_cache: yes
+
+  - name: Upgrade all packages to the latest version
+    apt:
+       name: "*"
+       state: latest  
+
+  - name: Remove dependencies that are no longer required
+    apt:
+       autoremove: yes
+
+  - name: Remove useless packages from the cache
+    apt:
+       autoclean: yes  
+
+  - name:  Reboot the machines
+    reboot:
+      msg:  "Reboot initiated by Ansible to complete install of patches"
+      
