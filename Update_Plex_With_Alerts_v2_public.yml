@@ -19,7 +19,7 @@
 # Installs the Plex deb package        
     - name: Install a .deb package from the internet.
       apt:
-       deb: https://downloads.plex.tv/plex-media-server-new/1.19.3.2764-ef515a800/debian/plexmediaserver_1.19.3.2764-ef515a800_amd64.deb
+       deb: https://downloads.plex.tv/plex-media-server-new/1.19.3.2843-e3c1f7bcd/debian/plexmediaserver_1.19.3.2843-e3c1f7bcd_amd64.deb
 # Sends a push notification to phone letting me know Plex has updated 
     - pushbullet: 
         api_key: Your API key here
